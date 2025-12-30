@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Simple Blog</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google tag (gtag.js) -->
+  <!-- Replace G-XXXXXXXXXX with your GA4 Measurement ID -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4XLLGXLYBP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4XLLGXLYBP');
+</script>
+
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Simple Blog</h1>
+    <p>A tiny site with a button, form, video, and file attachment.</p>
+  </header>
+
+  <main>
+    <!-- 1) Button -->
+    <section class="card">
+      <h2>Call-to-Action</h2>
+      <button id="ctaBtn">Read Latest Post</button>
+    </section>
+
+    <!-- 2) Form + File attachment -->
+    <section class="card">
+      <h2>Contact Me</h2>
+      <form id="contactForm">
+        <div class="row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Say hello..." rows="4"></textarea>
+        </div>
+        <div class="row">
+          <label for="attachment">Attach a file</label>
+          <input type="file" id="attachment" name="attachment" />
+        </div>
+        <button type="submit">Submit</button>
+        <p id="formStatus" aria-live="polite"></p>
+      </form>
+
+      <div id="fileMeta" class="meta"></div>
+    </section>
+
+    <!-- 3) Video -->
+    <section class="card">
+      <h2>Featured Video</h2>
+      <video id="sampleVideo" controls width="640" poster="https://peach.blender.org/wp-content/uploads/bbb-splash.png">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p class="hint">(This uses the public "Big Buck Bunny" sample video)</p>
+    </section>
+  </main>
+
+  <footer>
+    <small>© 2025 My Simple Blog</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
