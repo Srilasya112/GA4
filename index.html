@@ -89,32 +89,35 @@
     </div>
   </section>
 
-  <!-- ===== FEATURED VIDEO (Professional) ===== -->
-  <section id="featured-video" class="section" aria-label="Featured Video">
-    <div class="container">
-      <h2 class="section-title">Inside Our Work</h2>
 
-      <div class="card" style="padding: 0; overflow: hidden;">
-        <video
-          id="sampleVideo"
-          controls
-          playsinline
-          preload="metadata"
-          poster="https://storage.googleapis.com/coverr-public/poster/beautiful-lake-169.jpg"
-          style="width: 100%; display: block; border-radius: 16px;"
-          aria-label="Featured professional video"
-        >
-          <!-- Primary MP4 source (broadest support) -->
-          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+<!-- ===== FEATURED VIDEO (Professional) ===== -->
+<section id="featured-video" class="section" aria-label="Featured Video">
+  <div class="container">
+    <h2 class="section-title">Inside Our Work</h2>
 
-          <!-- Optional WebM source (better compression in some browsers) -->
-          <source src="https://storage.googleapis.com/coverr-public/webm/beautiful-lake-169.webm" type="video/webm" />
+    <div class="card" style="padding: 0; overflow: hidden;">
+      <video
+        id="sampleVideo"
+        controls
+        playsinline
+        preload="metadata"
+        poster="https://storage.googleapis.com/coverr-public/poster/beautiful-lake-169.jpg"
+        style="width: 100%; display: block; border-radius: 16px;"
+        aria-label="Featured professional video"
+      >
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+        <source src="https://storage.googleapis.com/coverr-public/webm/beautiful-lake-169.webm" type="video/webm" />
+        <!-- Optional captions (replace href with your VTT file) -->
+        <!-- <track kind="captions" srclang="en" src="/assets/captions-en.vtt" default /> -->
+        Your browser does not support the video tag.
+      </video>
 
-          <!-- Optional captions (replace URL with your VTT if available) -->
-          <!-- <track label="English" kind="captions" srclang="en" src="/assets/captions-en.vtt" default /> -->
-
-          Your browser does not support the video tag.
-        </video>
+      <p class="hint" style="padding: 12px 16px;">
+        Replace the source with your own branded clip when ready.
+      </p>
+    </div>
+  </div>
+</section>
 
         <p class="hint" style="padding: 12px 16px;">
           A short, professional video block. Replace the source with your own branded clip when ready.
