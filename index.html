@@ -6,30 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Your Brand — Simple & Professional Business</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" /> 
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MXVNL8GMQE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <link rel="icon" href="favicon.ico" />
 
-  gtag('config', 'G-MXVNL8GMQE');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MXVNL8GMQE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MXVNL8GMQE');
+  </script>
+
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-MZ9TM2F5');</script>
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MZ9TM2F5');
+  </script>
   <!-- End Google Tag Manager -->
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ9TM2F5"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ9TM2F5"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
   <!-- End Google Tag Manager (noscript) -->
+
   <!-- ===== NAVBAR ===== -->
   <header class="site-header" role="banner">
     <div class="container nav">
@@ -78,6 +85,40 @@
           <div class="stat-label">Conversion uplift</div>
         </div>
         <p class="hint">Trusted by startup & enterprise teams.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED VIDEO (Professional) ===== -->
+  <section id="featured-video" class="section" aria-label="Featured Video">
+    <div class="container">
+      <h2 class="section-title">Inside Our Work</h2>
+
+      <div class="card" style="padding: 0; overflow: hidden;">
+        <video
+          id="sampleVideo"
+          controls
+          playsinline
+          preload="metadata"
+          poster="https://storage.googleapis.com/coverr-public/poster/beautiful-lake-169.jpg"
+          style="width: 100%; display: block; border-radius: 16px;"
+          aria-label="Featured professional video"
+        >
+          <!-- Primary MP4 source (broadest support) -->
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+
+          <!-- Optional WebM source (better compression in some browsers) -->
+          <source src="https://storage.googleapis.com/coverr-public/webm/beautiful-lake-169.webm" type="video/webm" />
+
+          <!-- Optional captions (replace URL with your VTT if available) -->
+          <!-- <track label="English" kind="captions" srclang="en" src="/assets/captions-en.vtt" default /> -->
+
+          Your browser does not support the video tag.
+        </video>
+
+        <p class="hint" style="padding: 12px 16px;">
+          A short, professional video block. Replace the source with your own branded clip when ready.
+        </p>
       </div>
     </div>
   </section>
@@ -265,39 +306,5 @@
   </footer>
 
   <script src="script.js"></script>
-  
-<!-- ===== FEATURED VIDEO (Professional) ===== -->
-<section id="featured-video" class="section" aria-label="Featured Video">
-  <div class="container">
-    <h2 class="section-title">Inside Our Work</h2>
-
-    <div class="card" style="padding: 0; overflow: hidden;">
-      <video
-        id="sampleVideo"
-        controls
-        playsinline
-        preload="metadata"
-        poster="https://storage.googleapis.com/coverr-public/poster/beautiful-lake-169.jpg"
-        style="width: 100%; display: block; border-radius: 16px;"
-        aria-label="Featured professional video"
-      >
-        <!-- Primary MP4 source (broadest support) -->
-        <source src="https://storage.googleapis.com/coverr-public/mp4/beautiful-lake-169.mp4" type="video/mp4" />
-
-        <!-- Optional WebM source (better compression in some browsers) -->
-        <source src="https://storage.googleapis.com/coverr-public/webm/beautiful-lake-169.webm" type="video/webm" />
-
-        <!-- Optional captions (replace URL with your VTT if available) -->
-        <!-- <track kind="captions" src="/assets/captions-en.vtt" srclang="en" label="English" default /> -->
-
-        Your browser does not support the video tag.
-      </video>
-
-      <p class="hint" style="padding: 12px 16px;">
-        A short, professional background video. For best performance, host this file on your own CDN.
-      </p>
-    </div>
-  </div>
-</section>
 </body>
 </html>
