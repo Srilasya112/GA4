@@ -3,46 +3,161 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Simple Blog</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Google tag (gtag.js) -->
-  <!-- Replace G-XXXXXXXXXX with your GA4 Measurement ID -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4XLLGXLYBP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Acme Consulting — Simple & Professional Business Page</title>
 
-  gtag('config', 'G-4XLLGXLYBP');
-</script>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MZ9TM2F5');</script>
-<!-- End Google Tag Manager -->
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google tag (gtag.js) — GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XLLGXLYBP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4XLLGXLYBP', { send_page_view: true });
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MZ9TM2F5');
+  </script>
+  <!-- End Google Tag Manager -->
 </head>
 
 <body>
-  <header>
-    <h1>Welcome to My Simple Blog</h1>
-    <p>A tiny site with a button, form, video, and file attachment.</p>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ9TM2F5"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="site-header" role="banner">
+    <div class="container nav">
+      <a href="#home" class="brand">Acme<span>Consulting</span></a>
+
+      <nav aria-label="Primary" class="nav-links">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="nav-link ext">LinkedIn ↗</a>
+      </nav>
+
+      <button id="ctaBtn" class="btn primary small">Get Started</button>
+    </div>
   </header>
 
-  <main>
-    <!-- 1) Button -->
-    <section class="card">
-      <h2>Call-to-Action</h2>
-      <button id="ctaBtn">Read Latest Post</button>
-    </section>
+  <!-- ===== HERO (no video) ===== -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1>Grow faster with clear strategy & simple execution</h1>
+        <p>We help businesses focus on what matters—reliable delivery, measurable outcomes, and great customer experience.</p>
+        <div class="hero-actions">
+          <a id="heroCta" href="#contact" class="btn accent">Book a Free Call</a>
+          <a href="#services" class="btn ghost">See Services</a>
+        </div>
+        <ul class="hero-meta">
+          <li>✓ Quick onboarding</li>
+          <li>✓ Transparent pricing</li>
+          <li>✓ Real results</li>
+        </ul>
+      </div>
 
-    <!-- 2) Form + File attachment -->
-    <section class="card">
-      <h2>Contact Me</h2>
-      <form id="contactForm">
+      <!-- You can add an illustration or stat block here instead of video -->
+      <div class="hero-media alt-block">
+        <div class="stat">
+          <div class="stat-value">95%</div>
+          <div class="stat-label">On-time delivery</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">+38%</div>
+          <div class="stat-label">Conversion uplift</div>
+        </div>
+        <p class="hint">Trusted by startup and enterprise teams.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Strategy & Planning</h3>
+          <p>Set clear goals, define KPIs, and align teams for outcomes that compound.</p>
+          <a href="#contact" class="link">Talk to an expert →</a>
+        </article>
+
+        <article class="card">
+          <h3>Product & Delivery</h3>
+          <p>Lean workflows, strong QA, and predictable releases that delight customers.</p>
+          <a href="#contact" class="link">Start a pilot →</a>
+        </article>
+
+        <article class="card">
+          <h3>Data & Analytics</h3>
+          <p>From events to dashboards—insights that actually inform decisions.</p>
+          <a href="#contact" class="link">Get a demo →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section id="pricing" class="section alt">
+    <div class="container">
+      <h2 class="section-title">Simple Pricing</h2>
+      <div class="pricing">
+        <div class="price-card">
+          <h3>Starter</h3>
+          <p class="price">₹19,500<span>/mo</span></p>
+          <ul>
+            <li>Up to 2 projects</li>
+            <li>Basic reporting</li>
+            <li>Email support</li>
+          </ul>
+          <a href="#contact" class="btn primary">Choose Starter</a>
+        </div>
+
+        <div class="price-card featured">
+          <div class="badge">Popular</div>
+          <h3>Growth</h3>
+          <p class="price">₹49,900<span>/mo</span></p>
+          <ul>
+            <li>Unlimited projects</li>
+            <li>Advanced analytics</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="#contact" class="btn accent">Choose Growth</a>
+        </div>
+
+        <div class="price-card">
+          <h3>Enterprise</h3>
+          <p class="price">Custom</p>
+          <ul>
+            <li>Dedicated squad</li>
+            <li>Custom SLAs</li>
+            <li>Security review</li>
+          </ul>
+          <a href="#contact" class="btn ghost">Talk to Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+
+      <form id="contactForm" class="form" aria-label="Contact form">
         <div class="row">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" placeholder="Your name" required />
@@ -53,38 +168,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="row">
           <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Say hello..." rows="4"></textarea>
+          <textarea id="message" name="message" placeholder="How can we help?" rows="4"></textarea>
         </div>
         <div class="row">
           <label for="attachment">Attach a file</label>
           <input type="file" id="attachment" name="attachment" />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn primary wide">Submit</button>
         <p id="formStatus" aria-live="polite"></p>
       </form>
 
       <div id="fileMeta" class="meta"></div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 3) Video -->
-    <section class="card">
-      <h2>Featured Video</h2>
-      <video id="sampleVideo" controls width="640" poster="https://peach.blender.org/wp-content/uploads/bbb-splash.png">
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <p class="hint">(This uses the public "Big Buck Bunny" sample video)</p>
-    </section>
-  </main>
-
-  <footer>
-    <small>© 2025 My Simple Blog</small>
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#home" class="brand">Acme<span>Consulting</span></a>
+        <p class="small">© 2025 Acme Consulting. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="#services" class="footer-link">Services</a>
+        <a href="#pricing" class="footer-link">Pricing</a>
+        <a href="#contact" class="footer-link">Contact</a>
+        <a href="mailto:hello@acme.example" class="footer-link">Email us</a>
+      </nav>
+      <div class="socials">
+        <a href="https://twitter.com" target="_blank" rel="noopener" class="social">Twitter ↗</a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="social">LinkedIn ↗</a>
+        <a href="https://github.com" target="_blank" rel="noopener" class="social">GitHub ↗</a>
+      </div>
+    </div>
   </footer>
 
   <script src="script.js"></script>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ9TM2F5"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 </body>
 </html>
