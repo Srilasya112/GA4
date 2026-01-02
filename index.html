@@ -265,5 +265,39 @@
   </footer>
 
   <script src="script.js"></script>
+  
+<!-- ===== FEATURED VIDEO (Professional) ===== -->
+<section id="featured-video" class="section" aria-label="Featured Video">
+  <div class="container">
+    <h2 class="section-title">Inside Our Work</h2>
+
+    <div class="card" style="padding: 0; overflow: hidden;">
+      <video
+        id="sampleVideo"
+        controls
+        playsinline
+        preload="metadata"
+        poster="https://storage.googleapis.com/coverr-public/poster/beautiful-lake-169.jpg"
+        style="width: 100%; display: block; border-radius: 16px;"
+        aria-label="Featured professional video"
+      >
+        <!-- Primary MP4 source (broadest support) -->
+        <source src="https://storage.googleapis.com/coverr-public/mp4/beautiful-lake-169.mp4" type="video/mp4" />
+
+        <!-- Optional WebM source (better compression in some browsers) -->
+        <source src="https://storage.googleapis.com/coverr-public/webm/beautiful-lake-169.webm" type="video/webm" />
+
+        <!-- Optional captions (replace URL with your VTT if available) -->
+        <!-- <track kind="captions" src="/assets/captions-en.vtt" srclang="en" label="English" default /> -->
+
+        Your browser does not support the video tag.
+      </video>
+
+      <p class="hint" style="padding: 12px 16px;">
+        A short, professional background video. For best performance, host this file on your own CDN.
+      </p>
+    </div>
+  </div>
+</section>
 </body>
 </html>
