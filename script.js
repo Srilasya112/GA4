@@ -1,199 +1,174 @@
-
-/*****************************
- * Smooth scroll for internal links
- *****************************/
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', (e) => {
-    const id = a.getAttribute('href').slice(1);
-    const el = document.getElementById(id);
-    if (el) {
-      e.preventDefault();
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-
-/*****************************
- * DATA LAYER HELPERS
- *****************************/
+/************************************************
+ * 1. DATA LAYER HELPERS
+ ************************************************/
 window.dataLayer = window.dataLayer || [];
 
 /**
- * Push to dataLayer with common page context
- * @param {string} eventName
- * @param {object} payload
+ * Pushes events to dataLayer with standardized context.
+ * @param {string} eventName 
+ * @param {object} payload 
  */
 function dlPush(eventName, payload = {}) {
-  window.dataLayer.push({
-    event: eventName,
-    page_title: document.title,
-    page_location: location.href,
-    page_path: location.pathname,
-    ...payload,
-  });
-  // Dev log (optional)
-  console.log('[DL]', eventName, payload);
+    window.dataLayer.push({
+        event: eventName,
+        page_title: document.title,
+        page_location: window.location.href,
+        page_path: window.location.pathname,
+        ...payload,
+    });
+    // Optional: console.debug('[DL]', eventName, payload);
 }
 
-/* Initial page_view (optional if GA4 Config tag handles page views) */
+// Initial page view trigger
 dlPush('page_view');
 
-/*****************************
- * Header CTA ("Get Started")
- *****************************/
+/************************************************
+ * 2. NAVIGATION & LINKS
+ ************************************************/
+
+// Smooth scroll for internal fragment links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').slice(1);
+        if (!targetId) return; // Ignore plain "#" links
+
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+            e.preventDefault();
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+// Generic Link Tracking (Nav & Footer)
+document.querySelectorAll('.nav-link, .footer-link').forEach(link => {
+    link.addEventListener('click', () => {
+        dlPush('nav_click', {
+            link_text: link.textContent.trim(),
+            link_url: link.getAttribute('href'),
+            link_type: link.hostname === window.location.hostname ? 'internal' : 'external',
+            nav_area: link.closest('header') ? 'header' : (link.closest('footer') ? 'footer' : 'other'),
+        });
+    });
+});
+
+/************************************************
+ * 3. CTA & PRICING INTERACTION
+ ************************************************/
+
+// Header CTA
 const ctaBtn = document.getElementById('ctaBtn');
 if (ctaBtn) {
-  ctaBtn.addEventListener('click', () => {
-    // DataLayer event
-    dlPush('cta_click', {
-      button_id: 'ctaBtn',
-      button_text: ctaBtn.textContent.trim(),
-      cta_context: 'header',
+    ctaBtn.addEventListener('click', () => {
+        dlPush('cta_click', { button_id: 'ctaBtn', cta_context: 'header' });
+        document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
     });
-
-    // Original behavior: scroll to pricing
-    const el = document.getElementById('pricing');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  });
 }
 
-/*****************************
- * Hero CTA ("Book a Free Call") — if present
- *****************************/
+// Hero CTA
 const heroCta = document.getElementById('heroCta');
 if (heroCta) {
-  heroCta.addEventListener('click', () => {
-    dlPush('cta_click', {
-      button_id: 'heroCta',
-      button_text: heroCta.textContent.trim(),
-      cta_context: 'hero',
+    heroCta.addEventListener('click', () => {
+        dlPush('cta_click', { button_id: 'heroCta', cta_context: 'hero' });
     });
-  });
 }
 
-/*****************************
- * Navigation & Footer link clicks
- *****************************/
-document.querySelectorAll('.nav-link, .footer-link').forEach(link => {
-  link.addEventListener('click', () => {
-    dlPush('nav_click', {
-      link_text: link.textContent.trim(),
-      link_url: link.getAttribute('href'),
-      link_type: link.classList.contains('ext') ? 'external' : 'internal',
-      nav_area: link.closest('header') ? 'header' : (link.closest('footer') ? 'footer' : 'unknown'),
-    });
-  });
-});
-
-/*****************************
- * Pricing plan selects (Choose buttons)
- *****************************/
+// Pricing Plan Selection
 document.querySelectorAll('#pricing .price-card .btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const planCard = btn.closest('.price-card');
-    const planName = planCard?.querySelector('h3')?.textContent?.trim() || 'Unknown';
-    dlPush('pricing_select', {
-      pricing_plan: planName,
-      button_text: btn.textContent.trim(),
+    btn.addEventListener('click', () => {
+        const planName = btn.closest('.price-card')?.querySelector('h3')?.textContent?.trim();
+        dlPush('pricing_select', {
+            pricing_plan: planName || 'Unknown',
+            button_text: btn.textContent.trim(),
+        });
     });
-  });
 });
 
-/*****************************
- * Form + File attachment (demo only)
- *****************************/
-const form = document.getElementById('contactForm');
-const statusEl = document.getElementById('formStatus');
+/************************************************
+ * 4. FORM TRACKING (WITH PII PROTECTION)
+ ************************************************/
+const contactForm = document.getElementById('contactForm');
 let formStartTS = null;
 
-if (form) {
-  // First focus → form_start
-  form.addEventListener('focusin', () => {
-    if (!formStartTS) {
-      formStartTS = Date.now();
-      dlPush('form_start', {
-        form_id: 'contactForm',
-        form_fields_count: 4,
-      });
+if (contactForm) {
+    // Track first interaction
+    contactForm.addEventListener('focusin', () => {
+        if (!formStartTS) {
+            formStartTS = Date.now();
+            dlPush('form_start', { form_id: 'contactForm' });
+        }
+    }, { once: true });
+
+    // File Attachment Tracking
+    const fileInput = document.getElementById('attachment');
+    if (fileInput) {
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const sizeKB = Math.round(file.size / 1024);
+            
+            // NOTE: We omit 'file.name' to prevent accidental PII collection (e.g. "John_Doe_Resume.pdf")
+            dlPush('file_attach', {
+                form_id: 'contactForm',
+                attachment_type: file.type || 'unknown',
+                attachment_size_kb: sizeKB
+            });
+
+            const metaBox = document.getElementById('fileMeta');
+            if (metaBox) metaBox.textContent = `Attached: (${sizeKB} KB)`;
+        });
     }
-  });
 
-  const fileInput = document.getElementById('attachment');
-  const fileMetaBox = document.getElementById('fileMeta');
-
-  if (fileInput) {
-    fileInput.addEventListener('change', (e) => {
-      const f = e.target.files && e.target.files[0];
-      if (!f) return;
-
-      const sizeKB = Math.round(f.size / 1024);
-      const info = `Selected: ${f.name} • ${f.type || 'unknown/type'} • ${sizeKB} KB`;
-      if (fileMetaBox) fileMetaBox.textContent = info;
-
-      // DataLayer event (avoid PII per policy; consider removing attachment_name)
-      dlPush('file_attach', {
-        form_id: 'contactForm',
-        attachment_name: f.name,            // Consider hashing/removing if your PII policy requires
-        attachment_type: f.type || 'unknown',
-        attachment_size_kb: sizeKB,
-      });
+    // Submission Tracking
+    contactForm.addEventListener('submit', (e) => {
+        const timeToSubmit = formStartTS ? Math.round((Date.now() - formStartTS) / 1000) : 0;
+        
+        dlPush('form_submit', {
+            form_id: 'contactForm',
+            time_to_submit_seconds: timeToSubmit
+        });
+        
+        // Form logic continues (e.g., fetch or allow default)
     });
-  }
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const timeToSubmitSec = formStartTS ? Math.round((Date.now() - formStartTS) / 1000) : null;
-
-    dlPush('form_submit', {
-      form_id: 'contactForm',
-      form_fields_count: 4,
-      time_to_submit_seconds: timeToSubmitSec,
-    });
-
-    statusEl.textContent = `Thanks! (demo) Submitted in ${timeToSubmitSec ?? '—'}s.`;
-    form.reset();
-    formStartTS = null;
-  });
 }
 
-/*****************************
- * Video engagement (runs only if #sampleVideo exists)
- *****************************/
-const videoEl = document.getElementById('sampleVideo');
-let lastQuartile = 0;
-
-if (videoEl) {
-  videoEl.addEventListener('play', () => {
-    dlPush('video_play', {
-      video_title: videoEl.getAttribute('aria-label') || 'Featured video',
-      video_src: videoEl.currentSrc || 'unknown',
+/************************************************
+ * 5. VIDEO ENGAGEMENT (MULTI-VIDEO SUPPORT)
+ ************************************************/
+document.querySelectorAll('video').forEach(video => {
+    // Use data attributes to track state per video element
+    video.addEventListener('play', () => {
+        dlPush('video_start', { video_title: video.title || video.id || 'HTML5 Video' });
     });
-  });
 
-  videoEl.addEventListener('pause', () => {
-    dlPush('video_pause', {
-      video_title: videoEl.getAttribute('aria-label') || 'Featured video',
-      current_time_sec: Math.floor(videoEl.currentTime),
+    video.addEventListener('pause', () => {
+        if (video.currentTime < video.duration) { // Don't trigger pause on "ended"
+            dlPush('video_pause', { 
+                video_title: video.title || video.id,
+                current_time: Math.floor(video.currentTime) 
+            });
+        }
     });
-  });
 
-  videoEl.addEventListener('ended', () => {
-    dlPush('video_complete', {
-      video_title: videoEl.getAttribute('aria-label') || 'Featured video',
+    video.addEventListener('timeupdate', () => {
+        const progress = Math.floor((video.currentTime / video.duration) * 100);
+        const milestones = [25, 50, 75];
+        
+        milestones.forEach(ms => {
+            const marker = `reached_${ms}`;
+            // If milestone reached and not already tracked for this video
+            if (progress >= ms && !video.dataset[marker]) {
+                video.dataset[marker] = 'true';
+                dlPush('video_progress', {
+                    video_title: video.title || video.id,
+                    percent_viewed: ms
+                });
+            }
+        });
     });
-  });
 
-  videoEl.addEventListener('timeupdate', () => {
-    const d = videoEl.duration;
-    if (!d || isNaN(d)) return;
-    const pct = (videoEl.currentTime / d) * 100;
-    const q = pct >= 75 ? 75 : pct >= 50 ? 50 : pct >= 25 ? 25 : 0;
-    if (q > 0 && q !== lastQuartile) {
-      lastQuartile = q;
-      dlPush('video_progress', {
-        video_title: videoEl.getAttribute('aria-label') || 'Featured video',
-        percent_viewed: q,
-      });
-    }
-  });
-}
+    video.addEventListener('ended', () => {
+        dlPush('video_complete', { video_title: video.title || video.id });
+    });
+});
