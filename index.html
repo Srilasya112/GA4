@@ -1,16 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Brand — Simple & Professional Business</title>
+  <title>WoodCraft Furniture — Premium Home & Office Furniture</title>
 
-  <!-- Styles & Favicon -->
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" />
 
-  <!-- Google tag (gtag.js) -->
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MXVNL8GMQE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -19,7 +17,7 @@
     gtag('config', 'G-MXVNL8GMQE');
   </script>
 
-  <!-- Google Tag Manager -->
+  <!-- GTM -->
   <script>
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -27,287 +25,144 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MZ9TM2F5');
   </script>
-  <!-- End Google Tag Manager -->
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ9TM2F5"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ9TM2F5"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
 
-  <!-- ===== NAVBAR ===== -->
-  <header class="site-header" role="banner">
-    <div class="container nav">
-      <a href="#home" class="brand" aria-label="Go to home">Your<span>Brand</span></a>
+<header class="site-header">
+  <div class="container nav">
+    <a href="#home" class="brand">Wood<span>Craft</span></a>
+    <nav class="nav-links">
+      <a class="nav-link" href="#home">Home</a>
+      <a class="nav-link" href="#services">Collections</a>
+      <a class="nav-link" href="#features">Why Us</a>
+      <a class="nav-link" href="#pricing">Packages</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+    <button id="ctaBtn" class="btn primary small">Get Quote</button>
+  </div>
+</header>
 
-      <nav aria-label="Primary" class="nav-links">
-        <a class="nav-link" href="#home">Home</a>
-        <a class="nav-link" href="#services">Services</a>
-        <a class="nav-link" href="#features">Features</a>
-        <a class="nav-link" href="#pricing">Pricing</a>
-        <a class="nav-link" href="#testimonials">Testimonials</a>
-        <a class="nav-link" href="#faq">FAQ</a>
-        <a class="nav-link" href="#contact">Contact</a>
-        <a class="nav-link ext" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
-      </nav>
-
-      <button id="ctaBtn" class="btn primary small">Get Started</button>
-    </div>
-  </header>
-
-  <!-- ===== HERO ===== -->
-  <section id="home" class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <h1>Grow faster with clear strategy &amp; simple execution</h1>
-        <p>We help teams deliver reliably with measurable outcomes and exceptional customer experience.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn primary" id="heroCta">Book a Free Call</a>
-          <a href="#services" class="btn ghost">See Services</a>
-        </div>
-        <ul class="hero-meta">
-          <li>✓ Quick onboarding</li>
-          <li>✓ Transparent pricing</li>
-          <li>✓ Real results</li>
-        </ul>
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1>Premium Furniture Crafted for Comfort & Style</h1>
+      <p>Custom home & office furniture using premium wood and modern designs.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn primary" id="heroCta">Free Consultation</a>
+        <a href="#services" class="btn ghost">View Collection</a>
       </div>
-
-      <!-- Illustration / KPI block -->
-      <div class="hero-media alt-block">
-        <div class="stat">
-          <div class="stat-value">95%</div>
-          <div class="stat-label">On-time delivery</div>
-        </div>
-        <div class="stat">
-          <div class="stat-value">+38%</div>
-          <div class="stat-label">Conversion uplift</div>
-        </div>
-        <p class="hint">Trusted by startup &amp; enterprise teams.</p>
-      </div>
+      <ul class="hero-meta">
+        <li>✓ Solid Wood</li>
+        <li>✓ Custom Design</li>
+        <li>✓ Doorstep Delivery</li>
+      </ul>
     </div>
-  </section>
 
-  <!-- ===== FEATURED VIDEO (Professional) ===== -->
-  <section id="featured-video" class="section" aria-label="Featured Video">
-    <div class="container">
-      <h2 class="section-title">Inside Our Work</h2>
+    <div class="hero-media alt-block">
+      <div class="stat">
+        <div class="stat-value">10+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">5000+</div>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <p class="hint">Trusted across India</p>
+    </div>
+  </div>
+</section>
 
-      <div class="card" style="padding: 0; overflow: hidden;">
-        <figure style="margin: 0;">
-          <video
-            id="sampleVideo"
-            class="pro-video"
-            controls
-            playsinline
-            preload="metadata"
-            poster="https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720"
-            style="width: 100%; display: block; border-radius: 16px;"
-            aria-label="Showreel: professional office and collaboration"
-            controlslist="nodownload noplaybackrate"
-          >
-            <!-- Primary MP4 (broadest support) -->
-            <source src="https://videos.pexels.com/video-files/3184454/3184454-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-            <!-- Secondary WebM (some browsers prefer this) -->
-            <source src="https://storage.googleapis.com/coverr-public/webm/beautiful-lake-169.webm" type="video/webm" />
-            <!-- Optional captions (replace with your own VTT if available) -->
-            <!-- <track kind="captions" label="English" srclang="en" src="/assets/captions-en.vtt" default /> -->
-            Your browser does not support the video tag.
-          </video>
+<!-- VIDEO -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Our Craftsmanship</h2>
+    <video id="sampleVideo" controls poster="https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg">
+      <source src="https://videos.pexels.com/video-files/276583/276583-hd_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
 
-          <figcaption class="hint" style="padding: 12px 16px;">
-            A short professional showreel. Replace sources with your brand video when ready for production.
-          </figcaption>
-        </figure>
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="container">
+    <h2 class="section-title">Our Collections</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Home Furniture</h3>
+        <p>Sofas, Beds, Dining & Wardrobes</p>
+      </div>
+      <div class="card">
+        <h3>Office Furniture</h3>
+        <p>Chairs, Workstations & Cabins</p>
+      </div>
+      <div class="card">
+        <h3>Custom Furniture</h3>
+        <p>Designed exactly to your space</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== SERVICES ===== -->
-  <section id="services" class="section">
-    <div class="container">
-      <h2 class="section-title">Services</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Strategy &amp; Planning</h3>
-          <p>Set clear goals, define KPIs, and align teams for outcomes that compound.</p>
-          <a href="#contact" class="link">Talk to an expert →</a>
-        </article>
+<!-- FEATURES -->
+<section id="features" class="section alt">
+  <div class="container">
+    <h2 class="section-title">Why Choose Us</h2>
+    <div class="cards">
+      <div class="card"><h3>Premium Wood</h3><p>Long-lasting materials</p></div>
+      <div class="card"><h3>Custom Design</h3><p>Your style, your way</p></div>
+      <div class="card"><h3>End-to-End</h3><p>Design to installation</p></div>
+    </div>
+  </div>
+</section>
 
-        <article class="card">
-          <h3>Product &amp; Delivery</h3>
-          <p>Lean workflows, strong QA, and predictable releases that delight customers.</p>
-          <a href="#contact" class="link">Start a pilot →</a>
-        </article>
-
-        <article class="card">
-          <h3>Data &amp; Analytics</h3>
-          <p>From events to dashboards—insights that actually inform decisions.</p>
-          <a href="#contact" class="link">Get a demo →</a>
-        </article>
+<!-- PRICING -->
+<section id="pricing" class="section">
+  <div class="container">
+    <h2 class="section-title">Packages</h2>
+    <div class="pricing">
+      <div class="price-card">
+        <h3>Essential Home</h3>
+        <p class="price">₹79,000+</p>
+      </div>
+      <div class="price-card featured">
+        <h3>Premium Living</h3>
+        <p class="price">₹1,89,000+</p>
+      </div>
+      <div class="price-card">
+        <h3>Corporate</h3>
+        <p class="price">Custom</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== FEATURES ===== -->
-  <section id="features" class="section alt">
-    <div class="container">
-      <h2 class="section-title">Why Choose Us</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Fast Onboarding</h3>
-          <p>Kick off in days, not months—lightweight processes, quick wins.</p>
-        </article>
-        <article class="card">
-          <h3>Quality &amp; Reliability</h3>
-          <p>Battle-tested practices to reduce risk and improve delivery consistency.</p>
-        </article>
-        <article class="card">
-          <h3>Clear Communication</h3>
-          <p>Transparent status updates, reports, and decision-ready insights.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container">
+    <h2 class="section-title">Get Your Furniture Designed</h2>
+    <form id="contactForm" class="form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Your Requirement"></textarea>
+      <input type="file" id="attachment">
+      <button class="btn primary wide">Submit</button>
+    </form>
+    <div id="fileMeta"></div>
+  </div>
+</section>
 
-  <!-- ===== PRICING ===== -->
-  <section id="pricing" class="section">
-    <div class="container">
-      <h2 class="section-title">Simple Pricing</h2>
-      <div class="pricing">
-        <div class="price-card">
-          <h3>Starter</h3>
-          <p class="price">₹19,500<span>/mo</span></p>
-          <ul>
-            <li>Up to 2 projects</li>
-            <li>Basic reporting</li>
-            <li>Email support</li>
-          </ul>
-          <a href="#contact" class="btn accent wide">Choose Starter</a>
-        </div>
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 WoodCraft Furniture. All rights reserved.</p>
+  </div>
+</footer>
 
-        <div class="price-card featured">
-          <div class="badge">Popular</div>
-          <h3>Growth</h3>
-          <p class="price">₹49,900<span>/mo</span></p>
-          <ul>
-            <li>Unlimited projects</li>
-            <li>Advanced analytics</li>
-            <li>Priority support</li>
-          </ul>
-          <a href="#contact" class="btn primary wide">Choose Growth</a>
-        </div>
-
-        <div class="price-card">
-          <h3>Enterprise</h3>
-          <p class="price">Custom</p>
-          <ul>
-            <li>Dedicated squad</li>
-            <li>Custom SLAs</li>
-            <li>Security review</li>
-          </ul>
-          <a href="#contact" class="btn ghost wide">Talk to Sales</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== TESTIMONIALS ===== -->
-  <section id="testimonials" class="section">
-    <div class="container">
-      <h2 class="section-title">What Clients Say</h2>
-      <div class="cards">
-        <article class="card">
-          <p>“They transformed our delivery. Clear metrics, faster releases, happier customers.”</p>
-          <p class="small muted">— Priya S., Product Lead</p>
-        </article>
-        <article class="card">
-          <p>“Professional, predictable, and proactive. Best partner we’ve worked with.”</p>
-          <p class="small muted">— Arjun M., CTO</p>
-        </article>
-        <article class="card">
-          <p>“Our analytics finally drive decisions. Worth every rupee.”</p>
-          <p class="small muted">— Kavya R., Growth Manager</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FAQ ===== -->
-  <section id="faq" class="section alt">
-    <div class="container">
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <div class="faq">
-        <details class="faq-item">
-          <summary>How fast can we start?</summary>
-          <p>Typically within 5–7 business days after scope confirmation.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Do you work with startups?</summary>
-          <p>Yes—our process scales from small teams to enterprise squads.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Can we customize the plan?</summary>
-          <p>Absolutely. We tailor deliverables, SLAs, and reporting to your needs.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title">Contact Us</h2>
-
-      <form id="contactForm" class="form" aria-label="Contact form">
-        <div class="row">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required />
-        </div>
-        <div class="row">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required />
-        </div>
-        <div class="row">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="How can we help?" rows="4"></textarea>
-        </div>
-        <div class="row">
-          <label for="attachment">Attach a file</label>
-          <input type="file" id="attachment" name="attachment" />
-        </div>
-        <button type="submit" class="btn primary wide">Submit</button>
-        <p id="formStatus" aria-live="polite"></p>
-      </form>
-
-      <div id="fileMeta" class="meta"></div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a href="#home" class="brand">Your<span>Brand</span></a>
-        <p class="small">© 2026 Your Brand. All rights reserved.</p>
-      </div>
-      <nav aria-label="Footer">
-        <a class="footer-link" href="#services">Services</a>
-        <a class="footer-link" href="#pricing">Pricing</a>
-        <a class="footer-link" href="#faq">FAQ</a>
-        <a class="footer-link" href="#contact">Contact</a>
-      </nav>
-      <div class="socials">
-        <a class="social" href="mailto:hello@yourbrand.example">Email us</a>
-        <a class="social" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a class="social" href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- App script with dataLayer events -->
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
